@@ -1,0 +1,307 @@
+#include <Keypad.h>
+#include <LiquidCrystal.h>
+
+const byte satir = 4;
+const byte sutun = 4;
+
+char numaralar[satir][sutun] = 
+{
+  {'7','8','9','/'},
+  {'4','5','6','*'},
+  {'1','2','3','-'},
+  {'.','0','=','+'}
+};
+
+byte satirPin[satir] = {14,15,16,17};
+byte sutunPin[sutun] = {10,9,8,7};
+
+Keypad keypad = Keypad( makeKeymap(numaralar), satirPin, sutunPin, satir, sutun );
+LiquidCrystal lcd(12,11,6,5,4,3); 
+
+String sifre = "1234";
+String girilenSifre;
+
+int kontrol= 0;
+int sayac = 0; 
+int deneme = 0; 
+int max_deneme = 3; 
+int kirmiziled=18;
+int yesilled=19;
+
+//Buraya kadar olan kisimlar keypad kullanimi icin gerekli global degiskenleri ve giris pin degerlerini gosteriyor.
+
+#define FlamePin 2    
+const int buzzer2=21; 
+//Yangin sensoru icin gerekli olan buzzer ve sensorun giris degerlerini gosteriyor.
+
+int sicaklikGostergesi = A0;//sicaklik degerini okuyacagimiz yapi.
+
+int hareketSensoru = 20;
+int hareketDedektoru;    //Hareket sensoru icin olusturdugumuz kontrol yapisi.1 ise hareket var, 0 ise hareket yok.
+int lamba = 13;
+
+
+void setup()
+{
+  Serial.begin(9600);
+  
+  lcd.begin(16, 2);
+  pinMode(kirmiziled, OUTPUT);
+  pinMode(FlamePin, INPUT_PULLUP);
+   pinMode(buzzer2, OUTPUT);
+  digitalWrite(kirmiziled, LOW);
+  
+  Serial.println("enter password");
+  lcd.print("SIFRE GIRINIZ:");
+    
+  float tempVolt; 
+  
+  analogReference(INTERNAL1V1);//Sicaklik arttirimi icin kullaniliyor.
+
+  pinMode(lamba, OUTPUT);
+  pinMode(hareketDedektoru, INPUT);
+
+  delay(100);
+    
+}
+  
+void loop()
+{
+ 
+ char anahtar = keypad.getKey();//Kullanicidan bir sifre istiyoruz.
+  
+  if (anahtar)//sifre dogru ise
+  {
+    Serial.println(anahtar);
+    
+    sayac = sayac + 1; 
+    
+    lcd.setCursor(sayac, 1);
+    lcd.print("*");
+  }
+  
+  if (anahtar == '1')
+  {
+    girilenSifre = girilenSifre + 1;   
+  }
+  
+  if (anahtar == '2')
+  {
+    girilenSifre = girilenSifre + 2;  
+  }
+  
+  if (anahtar == '3')
+  {
+    girilenSifre = girilenSifre + 3; 
+  }
+  
+  if (anahtar == '4')
+  {
+    girilenSifre = girilenSifre + 4;  
+  }
+  
+  if (anahtar == '5')
+  {
+    girilenSifre = girilenSifre + 5;
+  }
+  
+   if (anahtar == '6')
+  {
+    girilenSifre = girilenSifre + 6; 
+  }
+  
+   if (anahtar == '7')
+  {
+    girilenSifre = girilenSifre + 7; 
+  }
+
+   if (anahtar == '8')
+  {
+    girilenSifre = girilenSifre + 8; 
+  }
+  
+  if (anahtar == '9')
+  {
+    girilenSifre = girilenSifre + 9;
+  }
+             
+  if (anahtar == '0')
+  {
+    girilenSifre = girilenSifre + 0; 
+  }
+  
+  if (anahtar == '=')//Sifre girildi.
+  {
+    Serial.println(girilenSifre); 
+    
+       if ( sifre == girilenSifre )//girilen sifre dogru ise
+        {
+          lcd.clear(); 
+          lcd.println("DOGRU SIFRE");
+          lcd.setCursor(0,1);         //kullaniciya girilen sifrenin dogru oldugu bilgisi veriliyor.
+          lcd.println("TEBRIKLER");
+          delay(200); 
+          digitalWrite(yesilled, HIGH);
+          delay(200);                //yesil lamba yaniyor.
+          digitalWrite(yesilled, LOW); 
+          delay(200);
+          
+          kontrol=1;
+          girilenSifre = ""; 
+          sayac = 0; 
+
+       }
+      else//girilen sifre dogru degilse
+       {
+          Serial.println("YANLIS SIFRE");
+          deneme = deneme + 1; //kullanicinin giris sayisi arttiriliyor.
+          if (deneme >= max_deneme )//giris sayisi 3'u gecerse "Davetsiz Misafir" bilgisi veriliyor.
+           {
+            lcd.clear();
+            lcd.setCursor(0,0); 
+            lcd.print("DAVETSIZ MISAFIR");
+  
+            digitalWrite(kirmiziled, HIGH);
+            delay(200);           //Kirmizi lamba yaniyor.
+            digitalWrite(kirmiziled, LOW); 
+            delay(200);
+            digitalWrite(buzzer2, HIGH);
+            delay(200);          //buzzer ses cikariyor.
+            digitalWrite(buzzer2, LOW); 
+            delay(200);
+
+            deneme = 0; 
+
+         }
+         
+     girilenSifre = ""; 
+     sayac = 0; 
+     lcd.clear(); 
+     lcd.setCursor(0,0); 
+     lcd.print("YANLIS SIFRE");
+     delay(100);
+     digitalWrite(kirmiziled, HIGH);
+     delay(100);                 //ayni sekilde yanlis sifre girildiginde de kirmizi isik yaniyor.
+     digitalWrite(kirmiziled, LOW); 
+     delay(100);
+
+     lcd.setCursor(0,1); 
+     lcd.print("3 HAKKINIZ VAR");
+     delay(100);
+
+     lcd.clear(); 
+     lcd.println("SIFRE GIRINIZ");
+     lcd.setCursor(0,1); 
+     }
+}
+
+if(kontrol == 1)
+{
+  
+//sıcaklık kontrol
+     float sicaklik = analogRead(sicaklikGostergesi);//evin sicakligi olculuyor.
+     delay(100);
+     sicaklik = (float)100*(1.1/1024)*analogRead(sicaklikGostergesi);//sicakligi derece cinsinden yazdiriyor.
+     lcd.setCursor(5, 0);
+     lcd.print("SICAKLIK:");
+     lcd.setCursor(3, 1);
+     lcd.print(sicaklik);
+     delay(300);
+     lcd.clear();
+     delay(300);
+     
+  if(sicaklik < 20)//sicaklik 20 derecenin altina dustugunde
+  {
+     lcd.setCursor(5, 0);
+     lcd.print("SICAKLIK");
+     lcd.setCursor(3, 1);//sicaklik dustu bilgisini kullaniciya veriyor.
+     lcd.print("DUSTU");
+     delay(300);
+     lcd.clear();
+     delay(300);
+  }
+  
+  if(sicaklik > 30)//sicaklik 30 derecenin ustune ciktiginda
+  {
+    lcd.setCursor(5, 0);
+    lcd.print("SICAKLIK");
+    lcd.setCursor(3, 1);//sicaklik yukseldi bilgisini kullaniciya veriyor.
+    lcd.print("YUKSELDI");
+    delay(300);
+    lcd.clear();
+    delay(300);
+  }
+
+  
+//yangın kontrol
+
+  int Flame = digitalRead(FlamePin);//yangin sensoru okunuyor.
+  
+   if(Flame==HIGH)//eger yangin varsa
+    {
+      digitalWrite(buzzer2, HIGH);
+      lcd.setCursor(5, 0);
+      lcd.print("YANGIN");
+      lcd.setCursor(3, 1);
+      lcd.print("DETECTOR");
+      delay(300);
+      lcd.clear();
+      delay(300);
+  
+      lcd.setCursor(5, 0);
+      lcd.print("YANGIN");
+      lcd.setCursor(3, 1);//yangin oldugu bilgisini kullaniciya veriyor.
+      lcd.print("VAR");
+      delay(300);
+      lcd.clear();
+      delay(300);
+
+      tone(buzzer2, 1000); 
+      delay(1000);        
+      noTone(buzzer2);    
+      delay(1000);
+      lcd.clear();
+      delay(300);
+  
+    }
+  else
+    {
+      digitalWrite(buzzer2, LOW); 
+      lcd.setCursor(5, 0);
+      lcd.print("YANGIN");
+      lcd.setCursor(3, 1);//yangin olmadigi bilgisini kullaniciya veriyor.
+      lcd.print("YOK");
+      delay(300);
+      lcd.clear();
+      delay(300);
+    }
+
+    
+//hareket kontrol
+
+   hareketDedektoru = digitalRead(hareketSensoru);//hareket sensoru okunuyor.
+
+    if(hareketDedektoru == 1)
+  {
+       digitalWrite(lamba, HIGH);//hareket varsa lamba yaniyor.
+       lcd.setCursor(5, 0);
+       lcd.print("HAREKET");
+       lcd.setCursor(3, 1);
+       lcd.print("VAR");
+       delay(300);
+       lcd.clear();
+       delay(300);
+  }
+    else
+  {
+       digitalWrite(lamba, LOW);//hareket yoksa lamba yanmiyor.
+       lcd.setCursor(5, 0);
+       lcd.print("HAREKET");
+       lcd.setCursor(3, 1);
+       lcd.print("YOK");
+       delay(300);
+       lcd.clear();
+       delay(300);
+  }
+}
+}
