@@ -1,119 +1,115 @@
 # smart-home-system-arduino-
 smart home system arduino
 # GİRİŞ
-Nesnelerin ˙Interneti (IoT) uygulamalarının yaygınla¸sması
-ile insanların nesneler ile olan ileti¸siminin yanı sıra
-nesnelerin nesneler ile olan ileti¸simi gün geçtikçe önem
-arz etmekte ve bu alandaki çalı¸smalar artmaktadır. Bu
-çalı¸smalardan birisi Akıllı Ev Sistemleri’dir.Ev ortamında
-gerçekle¸stirilen faaliyetleri kolayla¸stıran, güvenilir bir
-ortam saglayan ve insan hayatına konfor, rahatlık veren ev ˘
+Nesnelerin ˙Interneti (IoT) uygulamalarının yaygınlaşması
+ile insanların nesneler ile olan iletişiminin yanı sıra
+nesnelerin nesneler ile olan iletişimi gün geçtikçe önem
+arz etmekte ve bu alandaki çalışmalar artmaktadır. Bu
+çalışmalardan birisi Akıllı Ev Sistemleri’dir.Ev ortamında
+gerçekleştirilen faaliyetleri kolaylaştıran, güvenilir bir
+ortam saglayan ve insan hayatına konfor, rahatlık veren ev
 otomasyonu sistemlerine Akıllı Ev denilmektedir.
 Akıllı ev, ev teknolojileri endüstrinin birçok alanında
 kullanılan kontrol sistemlerinin gündelik hayata uyarlanması;
-ev otomasyonu ise bu teknolojilerin ki¸siye özel ihtiyaç ve
+ev otomasyonu ise bu teknolojilerin kişiye özel ihtiyaç ve
 isteklerine uygulanmasıdır. Akıllı ev tanımı, bütün bu
 teknolojiler sayesinde ev sakinlerinin ihtiyaçlarına cevap
-verebilen, onların hayatlarını kolayla¸stıran ve daha güvenli
-daha konforlu ve daha tasarruflu bir ya¸sam sunan evler
+verebilen, onların hayatlarını kolaylaştıran ve daha güvenli
+daha konforlu ve daha tasarruflu bir yaşam sunan evler
 için kullanılmaktadır. Akıllı evler, otomatik fonksiyonları
 ve sistemleri kullanıcı tarafından uzaktan kontrol edilebilen
 cihazları içerirler.
-Akıllı ev sistemlerinde bulunabilecek bazı özellikler ¸su
-¸sekildedir:
-• Otomatik ısı sabitleme,
-• Odalarda ı¸sık kontrolü,
-• Perdelerin açılıp kapanma kontrolü,
-• Garaj kapısı kontrolü,
-• Hırsız alarm sistemi,
-• Ev ile ilgili bilgilerin telefondan otomatik alınması,
+Akıllı ev sistemlerinde bulunabilecek bazı özellikler şu
+şekildedir:<br></br>
+• Otomatik ısı sabitleme,<br></br>
+• Odalarda ı¸sık kontrolü,<br></br>
+• Perdelerin açılıp kapanma kontrolü,<br></br>
+• Garaj kapısı kontrolü,<br></br>
+• Hırsız alarm sistemi,<br></br>
+• Ev ile ilgili bilgilerin telefondan otomatik alınması,<br></br>
 • Otomatik toprak sulama sistemi, vb
-# PROJE AMACI VE ISTERLERI
-Bu projenin amacı, Arduino üzerinde çalı¸san bir akıllı
+# PROJE AMACI VE İSTERLERİ
+Bu projenin amacı, Arduino üzerinde çalışan bir akıllı
 ev simülasyonu yapmaktır.Projede Proteus programında
-Arduino kartı kullanarak akıllı ev sistemi olu¸sturmanız
-beklenmektedir. Sistem içerisinde;
-• Yangın alarmı,
-• Hareket algılayan ı¸sık sistemi,
-• Dijital termometre,
-• Kilit sistemi bulunmalıdır.
-Projenin isterleri ise a¸sagıda sıralanmı¸stır: ˘
-1. Arduino kartı olarak Arduino Mega kullanılmalıdır.
-2. Projede yangın sensörü ve buzzer kullanılmalıdır. Yangın
-tespit edildiginde alarm çalması sa ˘ glanmalıdır. ˘
-3. Projede hareket sensörü ve lamba kullanılmalıdır. Hareket
-tespit edildiginde lamba yanması sa ˘ glanmalıdır. ˘
-4. Projede sıcaklık sensörü ve LCD ekran kullanılmalıdır.
-Algılanan sıcaklıgın devamlı olarak LCD ekranda gösterilmesi saglanmalıdır. Sıcaklık 20 C’nin altına ˘
-dü¸stügünde ekrana “Sıcaklık dü¸stü”, 30 C’nin üstüne ˘
-çıktıgında “Sıcaklık yükseldi” yazdırılmalıdır ˘
+Arduino kartı kullanarak akıllı ev sistemi oluşturmanız
+beklenmektedir. Sistem içerisinde;<br></br>
+• Yangın alarmı,<br></br>
+• Hareket algılayan ı¸sık sistemi,<br></br>
+• Dijital termometre,<br></br>
+• Kilit sistemi bulunmalıdır.<br></br>
+Projenin isterleri ise aşagıda sıralanmıştır:<br></br>
+1. Arduino kartı olarak Arduino Mega kullanılmalıdır.<br></br>
+2. Projede yangın sensörü ve buzzer kullanılmalıdır. Yangın tespit edildiginde alarm çalması sağlanmalıdır.<br></br>
+3. Projede hareket sensörü ve lamba kullanılmalıdır. Hareket tespit edildiginde lamba yanması sağlanmalıdır.<br></br>
+4. Projede sıcaklık sensörü ve LCD ekran kullanılmalıdır.<br></br>
+Algılanan sıcaklıgın devamlı olarak LCD ekranda gösterilmesi saglanmalıdır. Sıcaklık 20 C’nin altına düştügünde ekrana “Sıcaklık düştü”, 30 C’nin üstüne
+çıktıgında “Sıcaklık yükseldi” yazdırılmalıdır.<br></br>
 5. Projede tus takımı (keypad), kırmızı ve yesil led
 kullanılmalıdır. Keypad ile girilecek 4 haneli bir sifre
-belirlenmelidir. ¸Sifre yanlıs girildiginde kırmızı, dogru
-girildiginde yesil ledin yanması saglanmalıdır. 
-#YÖNTEM
-Projemizde Proteus 8 programını kullandık.˙I¸se
-Arduino kütüphanelerini protues’a eklemekle
-ba¸sladık.Kullanacagımız sensörler için ihtiyaç duydu ˘ gumuz ˘
-Hareket sensörü kütüphanesini, yangın sensörü
-kütüphanesini ekledik.Daha sonra kodlarımızı yazacagımız ˘
-Arduino IDE’sini kurduk.Böylece bilgisayarımız projeye
-hazır bir hale gelmi¸s oldu.
-Ba¸slangıcı yangın sensörü ile yapmaya karar verdik.Arduino
-mega 2560 kartının 2.pinine yangın sensörünü bagladık.Daha ˘
-sonra sensörün içerisine yangın alarmı için indirdigimiz ˘
-kütüphaneyi hex formatında yükledik.Sensörün kontrolünü
-yapabilmek için kodumuzu yazdık.Pin giri¸slerini global
-degi¸sken olarak belirleyip e ˘ ger yangın varsa kartın 21. ˘
-pinine ekledigimiz buzzer’ın ötmesini, yangın yok ise ˘
-normal i¸sleyi¸sine devam etmesini saglayacak kodları yazdık ˘
-ve bu kodu aynı ¸sekilde mega 2560 kartının içerisine hex
-formatında ekledik.Böylece ilk sensörümüzü gerçeklestirmis
-olduk.<br></br>
+belirlenmelidir.Şifre yanlıs girildiginde kırmızı, doğru
+girildiginde yeşil ledin yanması saglanmalıdır. 
+# YÖNTEM
+Projem için Proteus 8 programını kullandım.İşe
+Arduino kütüphanelerini Protues’a eklemekle
+başladım.Kullanacağım sensörler için ihtiyaç duyduğum
+hareket sensörü kütüphanesini, yangın sensörü
+kütüphanesini ekledim.Daha sonra kodları yazacağım
+Arduino IDE’sini kurdum.Böylece bilgisayarım projeye
+hazır bir hale gelmiş oldu.
+Başlangıcı yangın sensörü ile yapmaya karar verdim.Arduino
+Mega 2560 kartının 2.pinine yangın sensörünü bagladım.Daha
+sonra sensörün içerisine yangın alarmı için indirdigimiz 
+kütüphaneyi hex formatında yükledim.Sensörün kontrolünü
+yapabilmek için kodumuzu yazdım.Pin girişlerini global
+degişken olarak belirleyip eğer yangın varsa kartın 21. 
+pinine eklediğim buzzerın ötmesini, yangın yok ise
+normal işleyişine devam etmesini sağlayacak kodları yazdım
+ve bu kodu aynı şekilde   Mega 2560 kartının içerisine hex
+formatında ekledim.Böylece ilk sensörü gerçeklestirmiş
+oldum.<br></br>
 ![image](https://user-images.githubusercontent.com/73225797/221408013-98329d1e-c41a-4f2d-95e2-b0984a65c3e8.png)<br></br>
-Yangın sensöründen sonra hareket sensörüne geçis¸ yaptık.Hareket sensörünün giris¸ini kartın 20.pinine bag˘ladık.Daha  sonra  yangın  sensöründe  de  kullandıg˘ımız logicstate’i   kullanarak   0   ve   1   deg˘erlerine   göre   hareket algılandg˘ında    transistör    yardımıyla    kartın    13.    pinine bag˘ladıg˘ımız lambanın yanmasını sag˘layacak, hareket yoksa
+Yangın sensöründen sonra hareket sensörüne geçiş yaptım.Hareket sensörünün girişini kartın 20.pinine bağladım.Daha  sonra  yangın  sensöründe  de  kullandığım logicstate’i   kullanarak   0   ve   1   değerlerine   göre   hareket algılandığında    transistör    yardımıyla    kartın    13.    pinine bağladığımız lambanın yanmasını sağlayacak, hareket yoksa
 lambanın sönük kalmasını devam ettirecek olan kodu
-yazıp kartın içerisine ekledik.1 degerinde sistem hareketin ˘
-oldugunu görüp lambayı yakacaktır.0 de ˘ gerinde ise lamba ˘
-herhangi bir hareket olmadıgından dolayı sönük kalmaya ˘
+yazıp kartın içerisine ekledim.1 değerinde sistem hareketin 
+olduğunu görüp lambayı yakacaktır.0 değerinde ise lamba
+herhangi bir hareket olmadığından dolayı sönük kalmaya 
 devam edecektir.Burada transistör yardımıyla bu yapıyı
-olu¸sturduk.Böylece ikinci senösrümüzü de gerçekle¸stirmi¸s
-olduk
+oluşturdum.Böylece ikinci sensörü de gerçekleştirmiş
+oldum.
 ![image](https://user-images.githubusercontent.com/73225797/221408123-a34cd655-94e3-40c1-9545-4e948e9a0b00.png)
 ![image](https://user-images.githubusercontent.com/73225797/221408137-9c692d8e-e525-4db4-90df-f3d7a98e0048.png)<br></br>
 Hareket sensöründen sonra sıcaklık göstergesine
-geçtik.Sıcaklık sensörünü kartın A0. pinine bagladık.LCD’yi ˘
-ise 6-5-4-3.pinlere bagladık.Biz LCD ekranı evdeki ˘
-yangın,hareket,sıcaklık bilgilerini gösterecek ¸sekilde
-ayarlamayı dü¸sündük.Bu nedenle Ekranda ilk ba¸sta evin o
-anki sıcaklıgı daha sonra yangın veya hareket olup olmadıgı
-bilgisi gösteriliyor.Eger sıcaklık 20 derecenin altına düserse
-"Sıcalık Dü¸stü ", 30 derecenin üstüne çıkarsa da "Sıcaklık yükseldi" bilgisi veriliyor.Böylece kullanıcı hem evdeki
-sıcaklıgı görmüs oluyor hem de diger bilgilere bu ekran aracılığıyla ulaşmış olur.<br></br>
+geçtim.Sıcaklık sensörünü kartın A0. pinine bagladım.LCD’yi 
+ise 6-5-4-3.pinlere bağladım.Biz LCD ekranı evdeki 
+yangın,hareket,sıcaklık bilgilerini gösterecek şekilde
+ayarlamayı düşündüm.Bu nedenle Ekranda ilk başta evin o
+anki sıcaklığı daha sonra yangın veya hareket olup olmadığı
+bilgisi gösteriliyor.Eğer sıcaklık 20 derecenin altına düşerse
+"Sıcalık Düştü ", 30 derecenin üstüne çıkarsa da "Sıcaklık yükseldi" bilgisi veriliyor.Böylece kullanıcı hem evdeki
+sıcaklığı görmüs oluyor hem de diger bilgilere bu ekran aracılığıyla ulaşmış olur.<br></br>
 ![image](https://user-images.githubusercontent.com/73225797/221408287-55db965a-dc78-422a-9ac0-51f9e2f0f248.png)
 ![image](https://user-images.githubusercontent.com/73225797/221408299-6f7b926e-2899-4a54-8010-102f0b8f74ff.png)
 ![image](https://user-images.githubusercontent.com/73225797/221408341-a18ab3f5-194e-443e-8555-fb64c5401554.png)
 ![image](https://user-images.githubusercontent.com/73225797/221408351-b14963f9-a348-4508-a36d-e8cf8b9bbcdd.png)<br></br>
-Son olarak eve giris için kullanılacak olan tu¸s takımnını
-karta ekledik.Tus takımı kırmızı ve yesil ledle birlikte
-çalı¸smakta.Kullanıcının 3 tane giri¸s hakkı var.Kullanıcı
-yanlıs sifre girerse kırmızı led yanıp ekranda "Yanlıs ¸Sifre"
-bilgisi veriliyor.Kullancı dogru ¸sifre girdi ˘ ginde Yesil led 
-yanıyor ve ekranda "Dogru ¸Sifre" bilgisi veriliyor.Eger
-kullanıcı 3 kere yanlı¸s ¸sifre girerse ekranda "Davetsiz
+Son olarak eve giriş için kullanılacak olan tuş takımını
+karta ekledim.Tuş takımı kırmızı ve yeşil ledle birlikte
+çalışmakta.Kullanıcının 3 tane giriş hakkı var.Kullanıcı
+yanlış şifre girerse kırmızı led yanıp ekranda "Yanlış Şifre"
+bilgisi veriliyor.Kullanıcı dogru şifre girdiğinde Yeşil Led 
+yanıyor ve ekranda "Doğru Şifre" bilgisi veriliyor.Eger
+kullanıcı 3 kere yanlış ¸şifre girerse ekranda "Davetsiz
 Misafir" yazısı çıkıyor.
 
 # SONUÇ
-Sonuç olarak bütün sensörleri ve bu sensörleri çalı¸stırmak için kullandıgımız aletleri kartımıza ba ˘ glamı¸s oluy- ˘
-oruz.Sonradan yaptıgımız düzenlemelerle birlikte ¸su sırada ˘
-bir uygluma ortaya çıkmı¸s oluyor: 1-Kullanıcı eve giri¸s
-yapmak için ¸sifre girer.
-2-Dogru ¸sifreyi giren kullanıcı ilk önce evin o anki sıcaklık ˘
-degerini görür.
-3-Evde yangın olup olmadıgı bilgisini alır. ˘
-4-Evde herhangi bir hareket olup olmadıgı bilgisini alır. ˘
-5-Sistem üzerinde yapılan degi¸siklikler kullanıcıya LCD ˘
-ekran aracılıgıyla haber verilir
+Sonuç olarak bütün sensörleri ve bu sensörleri çalıştırmak için kullandığımız aletleri kartımıza bağlamış oluyoruz.Sonradan yaptıgımız düzenlemelerle birlikte şu
+sırada 
+bir uygluma ortaya çıkmış oluyor: 
+1-Kullanıcı eve giriş yapmak için sifre girer.<br></br>
+2-Dogru şifreyi giren kullanıcı ilk önce evin o anki sıcaklık
+değerini görür.<br></br>
+3-Evde yangın olup olmadığı bilgisini alır.<br></br>
+4-Evde herhangi bir hareket olup olmadığı bilgisini alır. <br></br>
+5-Sistem üzerinde yapılan değişiklikler kullanıcıya LCD ekran aracılıgıyla haber verilir.<br></br>
 
 # PSEUDO KOD
 #include <Keypad.h><br></br>
