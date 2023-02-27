@@ -210,4 +210,3 @@ if(kontrol == 1) sıcaklık kontrol() yangın kontrol() hareket kontrol()<br></b
 
 
 
-aracılıgıyla ulasmı¸s oluyor.
